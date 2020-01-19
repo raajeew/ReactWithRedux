@@ -1,0 +1,66 @@
+.App {
+  height: 100vh;
+}
+header.app-header{
+  height: 60px;
+  background-color: #ffffff;
+  box-shadow: 1px 1px 5px #cccccc;
+  display: flex !important;
+  flex-direction: row;
+  align-items: center;
+}
+.app-logo{
+  width: 220px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 16px;
+}
+.app-snapshot{
+  width: 150px;
+}
+.nav-wrap{
+  width:calc(100% - 370px);
+}
+.content-body{
+  min-height: calc(100vh - 100px);
+  box-sizing: border-box;
+  padding: 20px;
+}
+footer.app-footer{
+  height: 40px;
+  background: #282c34;
+  color: #ffffff;
+  display: flex !important;
+  flex-direction: row;
+  align-items: center;
+  box-sizing: border-box;
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+}
+
+.nav-wrap .nav-item{
+  padding:0 10px;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.product-wrap{
+  display: flex;
+  flex-direction: row;
+}
+
+.product-wrap > .card{
+  box-sizing: border-box;
+  margin: 0 20px 20px 0;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
