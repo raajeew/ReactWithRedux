@@ -18,21 +18,7 @@ class Home extends Component{
   }
 }
 
-const mapStateToProps = state =>{
-  return {
-    count : state.count
-  };
-}
-
-const mapDispatchToProps = dispatch =>{
-   return{
-     onAddItem:()=> dispatch({type:'ADD',value:1}),
-     onRemoveItem:()=> dispatch({type:'REMOVE',value:1})
-   }
-}
 
 
-export default connect(
-  mapStateToProps, 
-  mapDispatchToProps
-)(Home);
+
+export default connect()(Home);

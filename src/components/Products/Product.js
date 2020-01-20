@@ -7,27 +7,27 @@ class Products extends Component{
           <div>
               <h3>Products</h3>
               <div className="product-wrap">
-                {this.props.products.map((item,index) => (
-                    <div className="card" key={index}>
+                {this.props.products.map((item) => (
+                    <div className="card" key={item.id}>
                         <div className="card-body">
                             <h5 className="card-title">{item.name}</h5>
                             <p className="card-text">{item.price.currency} {item.price.total}</p>
-                            <a onClick={this.props.onAddToCart.bind(null,item)} className="btn btn-primary">Add to Cart</a>
+                            <button onClick={()=>this.props.onAddToCart(item)} className={(item.added ? 'added' : 'notAdded')}>Add to Cart</button>
                         </div>
                     </div>
                 ))}
               </div>
-              {/* <button onClick={this.props.onRemoveItem}>-</button>
-              <span>{this.props.count}</span>
-              <button onClick={this.props.onAddItem}>+</button> */}
           </div>
         )
     }
   }
   
+  function isItemAdded(id){
+    return this.props.cart.includes(id) === false
+  };
+
   const mapStateToProps = state =>{
     return {
-      count : state.count,
       products:state.products,
       cart:state.cart
     };
@@ -35,8 +35,6 @@ class Products extends Component{
   
   const mapDispatchToProps = dispatch =>{
      return{
-       onAddItem:()=> dispatch({type:'ADD',value:1}),
-       onRemoveItem:()=> dispatch({type:'REMOVE',value:1}),
        onAddToCart:(item)=> dispatch({type:'ADDTOCART',value:item})       
      }
   }

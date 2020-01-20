@@ -45,10 +45,16 @@ const reducer=(state = initialState, action)=>{
             }   
             break; 
         case 'ADDTOCART':
-            if (newState.cart.includes(action.value) === false) 
-            newState.cart=[...newState.cart,action.value];
-            //console.log(newState.cart);
-            break;     
+            if (newState.cart.includes(action.value) === false) {
+              newState.cart=[...newState.cart,action.value];
+            }
+            break; 
+        case 'DELCARTITEM':
+            return{
+              ...state,
+              cart:state.cart.filter(el=>el.id != action.key)
+            } 
+            break;         
     }
     return newState;
 };

@@ -19,7 +19,11 @@ export class Cart extends Component{
                   <div className="card-body">
                       <h5 className="card-title">{item.name}</h5>
                       <p className="card-text">{item.price.currency} {item.price.total}</p>
+                      <p>
+                        <button onClick={()=>this.props.onDelCartItem(item.id)}>Remove this item</button>
+                      </p>
                    </div>
+
               </div>
               ))}
               <div>Total cart value: Rs. {this.total(this.props.cart)}</div>
@@ -33,5 +37,9 @@ const mapStateToProp=state=>{
       cart : state.cart
     };
 }
-
-export default connect(mapStateToProp)(Cart);
+const mapDispatchToProps = dispatch =>{
+  return{
+    onDelCartItem:(id)=> dispatch({type:'DELCARTITEM',key:id})       
+  }
+}
+export default connect(mapStateToProp,mapDispatchToProps)(Cart);
